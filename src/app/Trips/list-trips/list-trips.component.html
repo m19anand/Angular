@@ -1,0 +1,110 @@
+<h4 class="m-3 p-3">List of Trips</h4>
+<div class="w-60">
+<table class="table w-60 m-3 p-3">
+    <thead class="thead-dark">
+        <tr>
+            <th>Survey No.</th>
+            <th>VacationsPerYear</th>
+            <th>EnjoyableTrip</th>
+            <th>ServicesUsed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trip of tripsmodel;let i = index">
+            <td>    {{trip.SurveyNo}} </td>
+            <td> 
+                <p>
+                    {{trip.VacationsPerYear}}
+                </p>    
+            </td>
+            <td>  {{trip.EnjoyableTrip}}   </td>
+            <td>
+                <div *ngFor="let serv of trip.ServicesUsed">
+                {{serv}} ,&nbsp; </div>     </td>
+                <td>
+                    <button type="button" (click)="DeleteSurvey(trip.Id)">Delete</button>
+                </td>
+                <td>
+                    <button type="button" (click)="EditSurvey(trip.Id,trip.index)">Edit</button>
+                </td>
+        </tr>
+    </tbody>
+</table></div>
+<div class="container mt-3 pt-3">
+    <div class="card">
+        <div class="card-header">
+            Create Trip Survey
+        </div>
+        <div class="card-body">
+            <!-- <h5 class="card-title">Special title treatment</h5> -->
+            <form #tripsSurveyForm="ngForm" (ngSubmit)="AddTripsSurvey(tripsSurveyForm)">
+                <div class="">
+                    <fieldset>      
+                        <legend><label for="SurveyNo">SurveyNo</label></legend>
+                        <input type="text" [(ngModel)]="model1.SurveyNo"  name="SurveyNo" class=""  id="SurveyNo" placeholder="SurveyNo">
+                        <!-- <div class="error" *ngIf="survey.get('surveyno').hasError(('required')) && survey.get('surveyno').touched">
+                                Name is required
+                              </div>
+                          <div class="error" *ngIf="survey.get('surveyno').hasError('minlength') && survey.get('surveyno').touched">
+                                Minimum of 2 characters required
+                              </div> -->
+                    </fieldset>
+                </div>
+                <div class="">
+                    <fieldset>      
+                        <legend><label for="VacationsPerYear">Vacations Per Year</label> <br/></legend>
+
+                        <div class="">
+                            <label for="1-2"> 
+                                <input type="radio" id="1-2" name="vacationsperyear" [(ngModel)]="model1.VacationsPerYear"  value="1-2"> &nbsp;           
+                                1-2
+                            </label>
+                            <label for="3-4"> 
+                                <input type="radio" id="3-4" name="vacationsperyear" [(ngModel)]="model1.VacationsPerYear" value="3-4">&nbsp;
+                                3-4
+                            </label>                        
+                        <label for="5+">
+                            <input type="radio" id="5+" name="vacationsperyear"  [(ngModel)]="model1.VacationsPerYear"  value="5+">&nbsp;
+                            5+
+                        </label>
+                        </div>                      
+                    </fieldset>
+                </div>
+
+
+                <div class="">
+                    <fieldset>      
+                        <legend> <label for="EnjoyableTrip">EnjoyableTrip</label><br/></legend>
+                        <div class="">                        
+                            <label for="true"> 
+                                <input type="radio" id="true" [(ngModel)]="model1.EnjoyableTrip" name="EnjoyableTrip" value="true"> &nbsp;    
+                                true</label>
+                            
+                            <label for="false"> 
+                                <input type="radio" id="false" [(ngModel)]="model1.EnjoyableTrip" name="EnjoyableTrip" value="false">&nbsp;    
+                                false</label>
+                        </div>
+
+
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>      
+                        <legend><label for="ServicesUsed">Services Used</label><br></legend>      
+                        <div class="form-control" *ngFor="let element of ServicsArray.controls;let i= index;">
+                            <input type="checkbox" [formControl]="element" (change)="getSelectedServValues()" id="inlineCheckbox{{i}}">
+                            <label for="inlineCheckbox{{i}}">&nbsp;{{Servics[i]}}</label>
+                        </div>
+                    </fieldset> 
+                </div>
+                <div class="form-group">
+                    <button type="submit" *ngIf="!ShowHideFlag" class="btn btn-primary">Save</button>
+                    <input type="hidden" id="editableRowId" [(ngModel)]="model1.index"  name="index"/>
+                    <button type="button" *ngIf="ShowHideFlag" (click)="UpdateField()" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{tripsSurveyForm.value | json}}

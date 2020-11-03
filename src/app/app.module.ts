@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ListTripsComponent } from './Trips/list-trips/list-trips.component';
+import { CreateTripSurveyComponent } from './Trips/create-trip-survey/create-trip-survey.component';
+import {FormsModule,FormControl, FormGroup, Validators, ReactiveFormsModule, NgForm, FormBuilder, FormArray} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListTripsComponent,
+    CreateTripSurveyComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

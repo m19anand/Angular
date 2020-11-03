@@ -1,0 +1,76 @@
+<!-- <div class="container mt-3 pt-3">
+    <div class="card">
+        <div class="card-header">
+            Create Trip Survey
+        </div>
+        <div class="card-body">
+            
+            <form #tripsSurveyForm="ngForm" (ngSubmit)="AddTripsSurvey(tripsSurveyForm)">
+                <div class="form-group">
+                    <fieldset>      
+                        <legend><label for="SurveyNo">SurveyNo</label></legend>
+                        <input type="text" [(ngModel)]="model1.SurveyNo" name="SurveyNo" class="form-control" id="SurveyNo" placeholder="SurveyNo">
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>      
+                        <legend><label for="VacationsPerYear">Vacations Per Year</label> <br/></legend>
+
+                        <div class="form-control">
+                            <label for="onetwo"> 
+                                <input type="radio" id="onetwo" name="vacationsperyear" [(ngModel)]="model1.VacationPerYearAnswer"  value="onetwo"> &nbsp;           
+                                1-2 vacations
+                            </label>
+                            <label for="threefour"> 
+                                <input type="radio" id="threefour" name="vacationsperyear" [(ngModel)]="model1.VacationPerYearAnswer" value="threefour">&nbsp;
+                                3-4 vacations
+                            </label>                        
+                        <label for="other"> 
+                            <input type="radio" id="other" name="vacationsperyear"  [(ngModel)]="model1.VacationPerYearAnswer" value="other">&nbsp;
+                            5+ vacations
+                        </label>
+                        </div>
+                      
+                      
+                    </fieldset>
+                </div>
+
+
+                <div class="form-group">
+                    <fieldset>      
+                        <legend> <label for="EnjoyableTrip">EnjoyableTrip</label><br/></legend>
+                        <div class="form-control">                        
+                            <label for="true"> 
+                                <input type="radio" id="true" [(ngModel)]="model1.EnjoyableTrip" name="EnjoyableTrip" value="true"> &nbsp;    
+                                True</label>
+                            
+                            <label for="false"> 
+                                <input type="radio" id="false" [(ngModel)]="model1.EnjoyableTrip" name="EnjoyableTrip" value="false">&nbsp;    
+                                False</label>
+                        </div>
+
+
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>      
+                        <legend><label for="ServicesUsed">Services Used</label><br></legend>      
+                        
+
+                        <div class="form-control" *ngFor="let element of ServicsArray.controls;let i= index;">
+                            <input type="checkbox" [formControl]="element" (change)="getSelectedServValues()" id="inlineCheckbox{{i}}">
+                            <label for="inlineCheckbox{{i}}">{{Servics[i]}}</label>
+                        </div>
+
+                
+                    </fieldset> 
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{tripsSurveyForm.value | json}} -->

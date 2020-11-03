@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TripsSurvey"
+    }
+  },
+  "defaultProject": "TripsSurvey",
+  "cli": {
+    "analytics": "4d3c5c04-c53c-4014-b867-a18f2ad75259"
+  }
 }
